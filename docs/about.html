@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>about.knit</title>
+
+<script src="site_libs/header-attrs-2.19/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Juraj Bodik</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">Publications and research</a>
+</li>
+<li>
+  <a href="teaching.html">Teaching</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<p><font size="12">Publications and Preprints</font></p>
+<ol style="list-style-type: decimal">
+<li><p>J. Bodik and <a
+href="https://wp.unil.ch/hecimpact/people/valerie-chavez-demoulin/">V.
+Chavez-Demoulin</a> (2023) <br> <a href="paper5.pdf">Structural
+restrictions in local causal discovery: identifying direct causes of a
+target variable</a><br />
+<button id="toggleButton5" class="custom-button">▶
+<strong>Abstract</strong>: We consider the problem of learning a set of
+direct causes of a target…</button></p>
+<div id="longText5" style="display: none;">
+<p><strong>Abstract</strong>: We consider the problem of learning a set
+of direct causes of a target variable from an observational joint
+distribution. Learning directed acyclic graphs (DAGs) that represent the
+causal structure is a fundamental problem in science. Several results
+are known when the full DAG is identifiable from the distribution, such
+as assuming a nonlinear Gaussian data-generating process. Often, we are
+only interested in identifying the direct causes of one target variable
+(local causal structure), not the full DAG. In this paper, we discuss
+different assumptions for the data-generating process of the target
+variable under which the set of direct causes is identifiable from the
+distribution. While doing so, we put essentially no assumptions on the
+variables other than the target variable. In addition to the novel
+identifiability results, we provide two practical algorithms for
+estimating the direct causes from a finite random sample and show their
+effectiveness on several benchmark data-sets. We apply this framework to
+learn direct causes of the reduction in the fertility rate in different
+countries.</p>
+</div>
+<p><br></p></li>
+<li><p>J. Bodik and <a
+href="https://wp.unil.ch/hecimpact/people/valerie-chavez-demoulin/">V.
+Chavez-Demoulin</a> (2023) <br> <a
+href="https://arxiv.org/abs/2303.15376">Identifiability of causal graphs
+under nonadditive conditionally parametric causal models</a> <br>
+<button id="toggleButton4" class="custom-button">▶
+<strong>Abstract</strong>: Causal discovery from observational data is a
+very challenging, often impossible…</button></p>
+<div id="longText4" style="display: none;">
+<p><strong>Abstract</strong>: Causal discovery from observational data
+is a very challenging, often impossible, task. However, estimating the
+causal structure is possible under certain assumptions on the
+data-generating process. Many commonly used methods rely on the
+additivity of the noise in the structural equation models. Additivity
+implies that the variance or the tail of the effect, given the causes,
+is invariant; the cause only affects the mean. However, the tail or
+other characteristics of the random variable can provide different
+information about the causal structure. Such cases have received only
+very little attention in the literature. It has been shown that the
+causal graph is identifiable under different models, such as linear
+non-Gaussian, post-nonlinear, or quadratic variance functional models.
+We introduce a new class of models called the Conditional Parametric
+Causal Models (CPCM), where the cause affects the effect in some of the
+characteristics of interest. We use sufficient statistics to show the
+identifiability of the CPCM models in the exponential family of
+conditional distributions. We also propose an algorithm for estimating
+the causal structure from a random sample under CPCM. Its empirical
+properties are studied for various data sets, including an application
+on the expenditure behavior of residents of the Philippines.</p>
+</div>
+<p><br></p></li>
+<li><p>J. Bodik, <a href="https://lindamhalla.netlify.app/">L.
+Mhalla</a>, <a
+href="https://wp.unil.ch/hecimpact/people/valerie-chavez-demoulin/">V.
+Chavez-Demoulin</a> (2022) <br><a
+href="https://arxiv.org/abs/2212.09831">Detecting causal covariates for
+extreme dependence structures</a> <br>
+<button id="toggleButton3" class="custom-button">▶
+<strong>Abstract</strong>: Determining the causes of extreme events is a
+fundamental question…</button></p>
+<div id="longText3" style="display: none;">
+<p><strong>Abstract</strong>: Determining the causes of extreme events
+is a fundamental question in many scientific fields. An important aspect
+when modelling multivariate extremes is the tail dependence. In
+application, the extreme dependence structure may significantly depend
+on covariates. As for the general case of modelling including
+covariates, only some of the covariates are causal. In this paper, we
+propose a methodology to discover the causal covariates explaining the
+tail dependence structure between two variables. The proposed
+methodology for discovering causal variables is based on comparing
+observations from different environments or perturbations. It is a
+desired methodology for predicting extremal behaviour in a new,
+unobserved environment. The methodology is applied to a dataset of NO2
+concentration in the UK. Extreme NO2 levels can cause severe health
+problems, and understanding the behaviour of concurrent severe levels is
+an important question. We focus on revealing causal predictors for the
+dependence between extreme NO2 observations at different sites.</p>
+</div>
+<p><br></p></li>
+<li><p>J. Bodik, <a href="http://www.karlin.mff.cuni.cz/~pawlas/">Z.
+Pawlas</a>, <a href="http://www.cs.cas.cz/mp/">M. Paluš</a> (2022)
+<br><a href="https://arxiv.org/abs/2112.10858">Causality in extremes of
+time series</a>. <br> <button id="toggleButton2" class="custom-button">▶
+<strong>Abstract</strong>: Consider two stationary time series with
+heavy-tailed marginal…</button></p>
+<div id="longText2" style="display: none;">
+<p><strong>Abstract</strong>: Consider two stationary time series with
+heavy-tailed marginal distributions. We aim to detect whether they have
+a causal relation, that is, if a change in one of them causes a change
+in the other. Usual methods for causality detection are not well suited
+if the causal mechanisms only manifest themselves in extremes. This
+paper aims to detect the causal relations in extremes between time
+series. We define the so-called causal tail coefficient for time series,
+which, under some assumptions, correctly detects the asymmetrical causal
+relations between extremes of the time series. The advantage is that
+this method works even if nonlinear relations and common ancestors are
+present. Moreover, we mention how our method can help detect a time
+delay between the two time series. We describe some of its asymptotic
+properties and show how it performs on some simulations. Finally, we
+show how this method works on space-weather and hydro-meteorological
+data sets.</p>
+</div>
+<p><br></p></li>
+<li><p>J. Bodik, <a href="http://www.karlin.mff.cuni.cz/~pawlas/">Z.
+Pawlas</a>, <a href="http://www.cs.cas.cz/mp/">M. Paluš</a> (2021)
+<br><a
+href="https://dspace.cuni.cz/handle/20.500.11956/127250">Detection of
+causality in time series using extreme values</a>. (Master thesis, won a
+10000KC prize in a competition for best master thesis). <br>
+<button id="toggleButton" class="custom-button">▶
+<strong>Abstract</strong>: In this thesis we deal with the following
+problem: Let us…</button></p>
+<div id="longText" style="display: none;">
+<p><strong>Abstract</strong>: In this thesis we deal with the following
+problem: Let us have two stationary time series with heavy-tailed
+marginal distributions. We want to detect whether they have a causal
+relation, i.e. if a change in one of them causes a change in the other.
+The question of distinguishing between causality and correlation is
+essential in many different science fields. Usual methods for causality
+detection are not well suited if the causal mechanisms only manifest
+themselves in extremes. In this thesis, we propose a new method that can
+help us in such a non-traditional case distinguish between correlation
+and causality. We define the so-called causal tail coefficient for time
+series, which, under some assumptions, correctly detects the
+asymmetrical causal relations between different time series. We will
+rigorously prove this claim, and we also propose a method on how to
+statistically estimate the causal tail coefficient from a finite number
+of data. The advantage is that this method works even if nonlinear
+relations and common ancestors are present. Moreover, we will mention
+how our method can help detect a time delay between the two time series.
+We will show how our method performs on some simulations. Finally, we
+will show on a real data set how this method works, discussing a cause
+of electromagnetic storms.</p>
+</div>
+<p><br></p></li>
+</ol>
+<p><font size="12">Selected conferences and talks</font></p>
+<ul>
+<li><p><a
+href="https://statistique.cuso.ch/?id=2688&amp;tx_displaycontroller%5BshowUid%5D=6526">CUSO
+PhD day</a> (Presented in <strong>Geneva</strong>, Switzerland,
+7.6.2023)</p></li>
+<li><p><a href="https://www.eurocim.org/">EUROCIM: European causal
+inference meeting</a> (Presented in <strong>Oslo</strong>, Norway,
+18.4.2023-22.4.2023)</p></li>
+<li><p><a href="https://statistique.cuso.ch/historique-des-ecoles">CUSO:
+statistics and applied probability</a> (Participant in <strong>Les
+Diablerets</strong>, Switzerland, 5.2.2023-8.2.2023, 4.9.2022-7.9.2022,
+6.2.2022-9.2.2022, 12.9.2021-15.9.2021)</p></li>
+<li><p><a
+href="http://www.birs.ca/events/2022/5-day-workshops/22w5079">BIRS:
+Combining Causal Inference and Extreme Value Theory in the Study of
+Climate Extremes and their Causes</a> (Presented via Zoom,
+<strong>Kelowna</strong>, Canada, 26.6.2022-1.7.2022)</p></li>
+<li><p><a
+href="https://www.czso.cz/documents/10180/167607761/32019722q4_471-472_vozar_information.pdf/82abef69-b6ca-4fdd-aa21-0201f139b8a2?version=1.1">Robust</a>
+(Presented in <strong>Prague</strong>, Czech republic,
+12.6.2022-17.6.2022)</p></li>
+<li><p><a
+href="http://www.cmstatistics.org/RegistrationsV2/CMStatistics2021/viewSubmission.php?in=251&amp;token=p12r7623o22q1oo2p4qrnq17n2s36r1o">CMStatistics</a>
+(Presented via Zoom, <strong>London</strong>, UK, 18.12.2021 -
+20.12.2021)</p></li>
+<li><p><a href="http://wintenberger.fr/VALPRED">Valpred workshop</a>
+(Presented in <strong>Aussois</strong>, France,
+4.10.2021-7.10.2021)</p></li>
+<li><p><a
+href="https://www.maths.ed.ac.uk/school-of-mathematics/eva-2021">EVA:
+Extreme value analysys</a> (Presented via Zoom,
+<strong>Edinburgh</strong>, UK, 5.6.2021-9.6.2021)</p></li>
+</ul>
+<p><span style="color: white; font-size: xx-small;"> Keywords:
+Mathematical statistics; Causal inference; Statistical inference;
+Probability theory; Hypothesis testing; Estimation theory; Confidence
+intervals; Statistical models; Causality; Counterfactuals; Treatment
+effects; Observational studies; Randomized experiments; Potential
+outcomes; Causal diagrams; Identification; Confounding; Selection bias;
+Propensity scores; Instrumental variables; Mediation analysis;
+Sensitivity analysis; Bayesian statistics; Nonparametric methods;
+Structural equation modeling; Granger causality; Directed acyclic graphs
+(DAGs); Structural causal models; Regression analysis; Time series
+analysis; Conditional probability; Markov chains; Estimator bias;
+Maximum likelihood estimation; Resampling methods; Cross-validation;
+Model selection; Robust statistics; Multivariate analysis; Experimental
+design; Statistical power; Sequential analysis; Missing data; Latent
+variable models; Bayesian networks; Marginalization; Causal effect
+heterogeneity; Principal component analysis; Survival analysis;
+Time-to-event data; Nonlinear regression; Longitudinal data analysis;
+Factor analysis; Structural equation models; Bootstrap methods; Spatial
+statistics; Cluster analysis; Decision trees; Dimensionality reduction;
+Bayesian hierarchical models; Statistical learning; Machine learning;
+Classification methods; Regression analysis; Propensity score matching;
+Network analysis; Granger causality testing; Observational data
+analysis; Quasi-experimental designs; Robust causal inference;
+Counterfactual estimation; Time series modeling; Structural equation
+modeling; Instrumental variable regression; Causal mediation analysis;
+Nonignorable missing data; Multiple imputation; Factorial designs;
+Cluster randomized trials; Survival analysis; Propensity-based
+weighting; Propensity score calibration; Sensitivity analysis;
+Nonparametric causal inference; Random forests; Causal discovery
+algorithms; Generalized linear models; Bayesian model averaging;
+Longitudinal causal inference; Structural causal models; Neural
+networks; Deep learning; Artificial neural networks; Feedforward
+networks; Backpropagation; Activation functions; Convolutional neural
+networks (CNN); Recurrent neural networks (RNN); Long Short-Term Memory
+(LSTM); Gated Recurrent Units (GRU); Autoencoders; Generative
+adversarial networks (GAN); Transfer learning; Fine-tuning; Dropout
+regularization; Batch normalization; Gradient descent; Stochastic
+gradient descent (SGD); Mini-batch gradient descent; Learning rate;
+Momentum; Adaptive learning rate methods (e.g., Adam, RMSprop);
+Hyperparameters; Overfitting; Underfitting; Model capacity; Weight
+initialization; Convergence criteria; Loss functions; Optimizers.
+</span></p>
+<style>
+  .custom-button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+    font-size: inherit;
+  }
+</style>
+<script>
+  var toggleButton = document.getElementById("toggleButton");
+  var longText = document.getElementById("longText");
+
+  toggleButton.addEventListener("click", function() {
+    if (longText.style.display === "none") {
+      longText.style.display = "block";  // Show the text
+      toggleButton.textContent = "Show Less";
+    } else {
+      longText.style.display = "none";   // Hide the text
+      toggleButton.textContent = "Abstract:  In this thesis we deal with the following problem: Let us...";
+    }
+  });
+</script>
+<script>
+  var toggleButton2 = document.getElementById("toggleButton2");
+  var longText2 = document.getElementById("longText2");
+
+  toggleButton2.addEventListener("click", function() {
+    if (longText2.style.display === "none") {
+      longText2.style.display = "block";  // Show the text
+      toggleButton2.textContent = "Show Less";
+    } else {
+      longText2.style.display = "none";   // Hide the text
+      toggleButton2.textContent = "Abstract: Consider two stationary time series with heavy-tailed marginal...";
+    }
+  });
+</script>
+<script>
+  var toggleButton3 = document.getElementById("toggleButton3");
+  var longText3 = document.getElementById("longText3");
+
+  toggleButton3.addEventListener("click", function() {
+    if (longText3.style.display === "none") {
+      longText3.style.display = "block";  // Show the text
+      toggleButton3.textContent = "Show Less";
+    } else {
+      longText3.style.display = "none";   // Hide the text
+      toggleButton3.textContent = "Abstract: Determining the causes of extreme events is a fundamental question...";
+    }
+  });
+</script>
+<script>
+  var toggleButton4 = document.getElementById("toggleButton4");
+  var longText4 = document.getElementById("longText4");
+
+  toggleButton4.addEventListener("click", function() {
+    if (longText4.style.display === "none") {
+      longText4.style.display = "block";  // Show the text
+      toggleButton4.textContent = "Show Less";
+    } else {
+      longText4.style.display = "none";   // Hide the text
+      toggleButton4.textContent = "Abstract:  Causal discovery from observational data is a very challenging, often impossible... ";
+    }
+  });
+</script>
+<script>
+  var toggleButton5 = document.getElementById("toggleButton5");
+  var longText5 = document.getElementById("longText5");
+
+  toggleButton5.addEventListener("click", function() {
+    if (longText5.style.display === "none") {
+      longText5.style.display = "block";  // Show the text
+      toggleButton5.textContent = "Show Less";
+    } else {
+      longText5.style.display = "none";   // Hide the text
+      toggleButton5.textContent = "Abstract: We consider the problem of learning a set of direct causes of a target... ";
+    }
+  });
+</script>
+<script>
+  var toggleButton6 = document.getElementById("toggleButton6");
+  var longText6 = document.getElementById("longText6");
+
+  toggleButton6.addEventListener("click", function() {
+    if (longText6.style.display === "none") {
+      longText6.style.display = "block";  // Show the text
+      toggleButton6.textContent = "Show Less";
+    } else {
+      longText6.style.display = "none";   // Hide the text
+      toggleButton6.textContent = "Abstract: ";
+    }
+  });
+</script>
+<script>
+  var toggleButton7 = document.getElementById("toggleButton7");
+  var longText7 = document.getElementById("longText7");
+
+  toggleButton7.addEventListener("click", function() {
+    if (longText7.style.display === "none") {
+      longText7.style.display = "block";  // Show the text
+      toggleButton7.textContent = "Show Less";
+    } else {
+      longText7.style.display = "none";   // Hide the text
+      toggleButton7.textContent = "Abstract: ";
+    }
+  });
+</script>
+<script>
+  var toggleButton8 = document.getElementById("toggleButton8");
+  var longText8 = document.getElementById("longText8");
+
+  toggleButton8.addEventListener("click", function() {
+    if (longText8.style.display === "none") {
+      longText8.style.display = "block";  // Show the text
+      toggleButton8.textContent = "Show Less";
+    } else {
+      longText8.style.display = "none";   // Hide the text
+      toggleButton8.textContent = "Abstract: ";
+    }
+  });
+</script>
+<script>
+  var toggleButton9 = document.getElementById("toggleButton9");
+  var longText9 = document.getElementById("longText9");
+
+  toggleButton9.addEventListener("click", function() {
+    if (longText9.style.display === "none") {
+      longText9.style.display = "block";  // Show the text
+      toggleButton9.textContent = "Show Less";
+    } else {
+      longText9.style.display = "none";   // Hide the text
+      toggleButton9.textContent = "Abstract: ";
+    }
+  });
+</script>
+<script>
+  var toggleButton10 = document.getElementById("toggleButton10");
+  var longText10 = document.getElementById("longText10");
+
+  toggleButton10.addEventListener("click", function() {
+    if (longText10.style.display === "none") {
+      longText10.style.display = "block";  // Show the text
+      toggleButton10.textContent = "Show Less";
+    } else {
+      longText10.style.display = "none";   // Hide the text
+      toggleButton10.textContent = "Abstract: ";
+    }
+  });
+</script>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
