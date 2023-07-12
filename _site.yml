@@ -1,0 +1,11 @@
+name: "Juraj Bodik"
+navbar:
+  title: "Juraj Bodik"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Publications and research"
+      href: about.html
+    - text: "Teaching"
+      href: teaching.html    
+output_dir: docs

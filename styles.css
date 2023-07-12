@@ -1,0 +1,30 @@
+.columns-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column-left {
+  flex: 0 0 200px;
+  margin-right: 20px;
+}
+
+.column-right {
+  flex: 1 1 auto;
+}
+
+.profile-image {
+  width: 150px;
+  border-radius: 50%;
+}
+
+
+@media print {
+  .page-break {
+    page-break-after: always;
+  }
+
+  @page {
+    size: auto;
+    margin: 0;
+  }
+}

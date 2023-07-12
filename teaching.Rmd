@@ -1,0 +1,19 @@
+---
+title: "Teaching"
+output: html_document
+---
+
+Past: teaching assistent at HEC UNIL
+
+-Spring 2023: [Forecasting II](https://hecnet.unil.ch/indexMRN.php?QS=/syllabus/descriptif/2496)
+
+-Spring 2023: [Forecasting I](https://hecnet.unil.ch/indexMRN.php?QS=/syllabus/descriptif/2496)
+
+-Fall 2022: [Optimization](https://www.unil.ch/hec/home/menuinst/etudes/cours.html?url=/web/syllabus/permalink/M0094)
+
+-Spring 2022: [Forecasting II](https://hecnet.unil.ch/indexMRN.php?QS=/syllabus/descriptif/2496)
+
+-Fall 2021: [Optimization](https://www.unil.ch/hec/home/menuinst/etudes/cours.html?url=/web/syllabus/permalink/M0094)
+
+
+
